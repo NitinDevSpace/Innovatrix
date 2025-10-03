@@ -22,6 +22,12 @@ function Navbar() {
 					{/* Desktop Menu */}
 					<div className="hidden md:flex space-x-8 items-center">
 						<Link
+							to="/about"
+							className="text-gray-700 hover:text-indigo-600 font-medium"
+						>
+							About
+						</Link>
+						<Link
 							to="/organizers"
 							className="text-gray-700 hover:text-indigo-600 font-medium"
 						>
@@ -62,6 +68,13 @@ function Navbar() {
 			{/* Mobile Menu */}
 			{isOpen && (
 				<div className="md:hidden bg-white shadow-md">
+					<Link
+						to="/about"
+						className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
+						onClick={() => setIsOpen(false)}
+					>
+						About
+					</Link>
 					<Link
 						to="/organizers"
 						className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"

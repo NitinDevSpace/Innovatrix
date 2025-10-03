@@ -20,6 +20,9 @@ function Footer() {
 
 					{/* Navigation links */}
 					<div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8">
+						<Link to="/about" className="hover:text-indigo-400 font-medium">
+							About
+						</Link>
 						<Link
 							to="/organizers"
 							className="hover:text-indigo-400 font-medium"
