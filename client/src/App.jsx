@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
 
 function App() {
-
-  return (
-    <>
-      <h1 className='flex justify-center items-center text-2xl text-red'>Hello gjhgjh</h1>
-    </>
-  )
+	return (
+		<>
+			<div className="flex justify-center items-center bg-red-700">
+				<h1>Hello</h1>
+			</div>
+		</>
+	);
 }
 
-export default App
+export default App;
