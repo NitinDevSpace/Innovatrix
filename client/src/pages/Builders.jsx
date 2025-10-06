@@ -69,7 +69,7 @@ function Builders() {
     setSubmitting(true)
 
     try {
-      const response = await fetch('/api/builders', {
+      const response = await fetch('http://localhost:8080/api/builders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

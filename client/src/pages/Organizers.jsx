@@ -74,7 +74,7 @@ function Organizers() {
     setSuccessMessage('')
 
     try {
-      const response = await fetch('/api/organizers', {
+      const response = await fetch('http://localhost:8080/api/organizers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
