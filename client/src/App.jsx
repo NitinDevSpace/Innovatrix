@@ -8,6 +8,9 @@ import About from "./pages/About";
 import KanbanBoard from "./pages/KanbanBoard";
 import Organizers from "./pages/Organizers";
 import Builders from "./pages/Builders";
+import SignIn from "./pages/Auth/Sign-In";
+import SignUp from "./pages/Auth/Sign-Up";
+import Profile from "./pages/Auth/Profile";
 
 function App() {
 	return (
@@ -19,6 +22,9 @@ function App() {
 				<Route path="/organizers" element={<Organizers />} />
 				<Route path="/builders" element={<Builders />} />
 				<Route path="/kanban" element={<KanbanBoard />} />
+				<Route path="/profile" element={<Profile />} />
+				<Route path="/sign-in" element={<SignIn />} />
+				<Route path="/sign-up" element={<SignUp />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
