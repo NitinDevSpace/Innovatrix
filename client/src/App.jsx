@@ -1,13 +1,13 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import KanbanBoard from "./pages/KanbanBoard";
-import Organizers from "./pages/Organizers";
-import Builders from "./pages/Builders";
+import Organizers from "./pages/Forms/Organizers";
+import Builders from "./pages/Forms/Builders";
 import SignIn from "./pages/Auth/Sign-In";
 import SignUp from "./pages/Auth/Sign-Up";
 import Profile from "./pages/Auth/Profile";
