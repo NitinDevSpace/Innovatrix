@@ -29,6 +29,7 @@ function Navbar() {
 		if (token) {
 			signIn(); // Update Zustand store
 		}
+		//signIn();
 	}, []);
 
 	useEffect(() => {
@@ -48,7 +49,7 @@ function Navbar() {
 	}, [profile]);
 
 	return (
-		<nav className="bg-white shadow-md sticky top-0 z-50">
+		<nav className="bg-white shadow-md overflowx-hidden sticky top-0 z-50">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between h-16 items-center">
 					{/* Logo */}
@@ -127,7 +128,7 @@ function Navbar() {
 											navigate("/");
 											setProfile(false);
 										}}
-										className="hover:scale-105 hover:text-primary"
+										className="hover:scale-105 hover:text-red-500"
 									>
 										Sign Out
 									</button>
@@ -140,7 +141,7 @@ function Navbar() {
 					<div className="md:hidden flex items-center">
 						<button
 							onClick={() => setIsOpen(!isOpen)}
-							className="text-secondary2 hover:scale-105 hover:text-primary focus:outline-none"
+							className="text-secondary2 focus:outline-none"
 						>
 							{isOpen ? <X size={24} /> : <Menu size={24} />}
 						</button>
@@ -150,42 +151,75 @@ function Navbar() {
 
 			{/* Mobile Menu */}
 			{isOpen && (
-				<div className="md:hidden bg-white shadow-md px-4">
+				<div className="flex flex-col absolute right-0 font-grotesk md:hidden bg-white shadow-md px-4">
 					<Link
 						to="/about"
-						className="block px-4 py-2 text-secondary2 hover:bg-indigo-50 hover:scale-105 hover:text-primary"
+						className="block px-4 py-2 text-secondary2"
 						onClick={() => setIsOpen(false)}
 					>
 						About
 					</Link>
 					<Link
 						to="/organizers"
-						className="block px-4 py-2 text-secondary2 hover:bg-indigo-50 hover:scale-105 hover:text-primary"
+						className="block px-4 py-2 text-secondary2"
 						onClick={() => setIsOpen(false)}
 					>
 						For Organizers
 					</Link>
 					<Link
 						to="/builders"
-						className="block px-4 py-2 text-secondary2 hover:bg-indigo-50 hover:scale-105 hover:text-primary"
+						className="block px-4 py-2 text-secondary2"
 						onClick={() => setIsOpen(false)}
 					>
 						For Builders
 					</Link>
 					<Link
 						to="/kanban"
-						className="block px-4 py-2 text-secondary2 hover:bg-indigo-50 hover:scale-105 hover:text-primary"
+						className="block px-4 py-2 text-secondary2"
 						onClick={() => setIsOpen(false)}
 					>
 						Kanban
 					</Link>
-					<Link
-						to="/community"
-						className="block px-4 py-2 text-secondary2 hover:bg-indigo-50 hover:scale-105 hover:text-primary"
-						onClick={() => setIsOpen(false)}
+					<button
+						ref={profileRef}
+						className="flex w-full flex-col px-4 py-2  text-secondary2"
 					>
-						Join Community
-					</Link>
+						<div
+							onClick={handleProfile}
+							className="flex gap-2 items-center w-full  font-medium font-grotesk"
+						>
+							{signedIn ? (
+								<>
+									Name
+									{profile ? <ChevronUp /> : <ChevronDown />}
+								</>
+							) : (
+								"Sign In"
+							)}
+						</div>
+						{/* Profule Drawer */}
+						{profile && (
+							<div className="absolute top-full right-0  bg-white w-44 px-8 py-2 flex flex-col items-start gap-3 font-grotesk rounded shadow-md z-50">
+								<button
+									onClick={() => {
+										navigate("/profile");
+									}}
+								>
+									Profile
+								</button>
+								<button
+									onClick={() => {
+										signOut();
+										navigate("/");
+										setProfile(false);
+									}}
+									className="text-red-500"
+								>
+									Sign Out
+								</button>
+							</div>
+						)}
+					</button>
 				</div>
 			)}
 		</nav>
