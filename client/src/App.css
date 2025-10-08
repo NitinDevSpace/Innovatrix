@@ -4,4 +4,34 @@
 
 body {
     @apply font-sans;
+    @apply text-secondary2;
+}
+
+/* Responsive root font sizing */
+html {
+  font-size: 16px; /* Default for desktops */
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px; /* Slightly smaller for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 10px; /* Smaller for large phones */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 10px; /* Small phones */
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 8px; /* Very small screens */
+  }
 }

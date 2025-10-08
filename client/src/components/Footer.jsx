@@ -7,7 +7,7 @@ function Footer() {
 	return (
 		<footer className="bg-secondary2 text-accent2 ">
 			{/* Top section: Logo + Links */}
-			<div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+			<div className="lg:max-w-[100rem] mx-auto px-4 py-10 sm:px-6 lg:px-8">
 				<div className="flex flex-col md:flex-row justify-between items-start md:items-center">
 					{/* Logo */}
 					<div className="flex-shrink-0">
