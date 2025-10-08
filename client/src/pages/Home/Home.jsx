@@ -4,6 +4,7 @@ import CurrentEvents from "./CurrentEvents";
 import Innovations from "./Innovations";
 import Testimonials from "./Testimonials";
 import JoinCommunity from "./JoinCommunity";
+import Filler from "./Filler";
 
 function Home() {
 	return (
@@ -16,6 +17,9 @@ function Home() {
 			</section>
 			<section>
 				<CurrentEvents />
+			</section>
+			<section>
+				<Filler />
 			</section>
 			<section>
 				<Innovations />
