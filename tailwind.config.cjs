@@ -11,20 +11,20 @@ module.exports = {
 				accent2: "#ECF0F1",
 				accent3: "#BDC3C7",
 			},
+			keyframes: {
+				marquee: {
+					"0%": { transform: "translateX(0%)" },
+					"100%": { transform: "translateX(-141%)" },
+				},
+			},
+			animation: {
+				marquee: "marquee 25s linear infinite", // adjust duration as needed
+			},
 		},
 		fontFamily: {
 			inter: ["Inter", "sans-serif"],
 			grotesk: ["Space Grotesk", "sans-serif"],
 			sans: ["Inter", "sans-serif"], // default body text
-		},
-		keyframes: {
-			marquee: {
-				"0%": { transform: "translateX(0%)" },
-				"100%": { transform: "translateX(-141%)" },
-			},
-		},
-		animation: {
-			marquee: "marquee 25s linear infinite", // adjust duration as needed
 		},
 	},
 	plugins: [],

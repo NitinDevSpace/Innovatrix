@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ArrowBigDownDash } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { ArrowBigDownDash, MoveDown, MoveRight } from "lucide-react";
 import Strip from "../Home/Strip";
 
 function Builders() {
@@ -17,6 +17,8 @@ function Builders() {
 	const [submitting, setSubmitting] = useState(false);
 	const [error, setError] = useState(null);
 	const [success, setSuccess] = useState(null);
+
+	const formRef = useRef(null);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -104,14 +106,14 @@ function Builders() {
 
 	return (
 		<div
-			className="relative bg-cover bg-center text-white gap-12 flex flex-col items-center justify-center py-12 px-6 sm:px-12 lg:px-24"
+			className="relative bg-cover bg-center text-white gap-12 flex flex-col items-center justify-center pt-12 px-6 sm:px-12 lg:px-24"
 			style={{
 				backgroundImage:
 					"url('https://t3.ftcdn.net/jpg/03/64/76/22/360_F_364762217_G4bMaSfMBuwgjawubHlxJqyt1SG2gJ5n.jpg')",
 			}}
-    >
+		>
 			{/* optional: reduced opacity */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+			<div className="absolute inset-0 bg-black opacity-50"></div>
 			{/* Text heading */}
 			<div className="mt-6 p-6 flex flex-col items-center gap-4 z-20 relative">
 				<h1 className="font-grotesk font-extrabold text-4xl">
@@ -121,18 +123,27 @@ function Builders() {
 					A global community of developers, designers, and innovators shaping
 					the next generation of technology through collaboration.
 				</p>
-				<button className="bg-white text-black mt-4 p-4 rounded-xl flex gap-4">
+				<button
+					onClick={() => {
+						const offset = 40; // adjust if you have sticky header
+						window.scrollTo({
+							top: formRef.current.offsetTop - offset,
+							behavior: "smooth",
+						});
+					}}
+					className="bg-white text-black font-grotesk text-lg mt-4 p-4 rounded-xl flex gap-4"
+				>
 					Become a Builder
-					<span className="animate-bounce inline-block">
-						<ArrowBigDownDash />
+					<span className="animate-bounce">
+						<ArrowBigDownDash className="w-6 h-6 sm:w-7 sm:h-7" />
 					</span>
 				</button>
 			</div>
 			{/* below section of text heading */}
-			<div className="flex flex-col md:flex-row gap-6 justify-center items-center md:items-start z-10 w-full max-w-[100rem] mx-auto">
+			<div className="flex flex-col flex-wrap lg:flex-nowrap md:flex-row gap-6 justify-center items-center md:items-start z-10 w-full max-w-[100rem] mx-auto">
 				{/* left container */}
-				<div className="w-full md:w-[60%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl p-4 shadow-2xl">
-					<div className="p-12 flex flex-col justify-center text-white gap-8">
+				<div className="w-full lg:w-[60%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl  shadow-2xl">
+					<div className="p-12 flex flex-col items-center justify-center text-white gap-8">
 						<h1 className="text-4xl font-grotesk font-extrabold mb-4 ">
 							For the Builders, Dreamers, and Disruptors.
 						</h1>
@@ -149,17 +160,26 @@ function Builders() {
 							<img
 								src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
 								alt="Builders working"
-								className="rounded-lg shadow-sm shadow-white object-cover w-full h-48 sm:h-72"
+								className="rounded-lg shadow-sm shadow-white object-cover w-full h-48 "
 							/>
-							<h1 className="text-white font-grotesk font-bold p-6">
-								Register Now -{">"}
-							</h1>
 						</div>
+						<h1 className="text-white text-3xl font-grotesk font-bold p-6 flex items-center gap-2">
+							Register Now
+							<span className="inline-block md:hidden font-bold animate-bounce">
+								<MoveDown className="w-6 h-6" strokeWidth={4.5} />
+							</span>
+							<span className="hidden md:inline-block ">
+								<MoveRight className="w-6 h-6 " strokeWidth={4.5} />
+							</span>
+						</h1>
 					</div>
 				</div>
 				{/* right container form */}
-				<div className="w-full md:w-[40%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl p-4 shadow-2xl">
-					<h1 className="text-4xl text-white font-grotesk font-extrabold m-6 ">
+				<div
+					ref={formRef}
+					className="w-full lg:w-[40%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl p-4 shadow-2xl"
+				>
+					<h1 className="text-4xl text-white font-grotesk font-extrabold m-6 justify-self-center">
 						Builder Registration
 					</h1>
 					<form
@@ -276,15 +296,24 @@ function Builders() {
 					</form>
 				</div>
 			</div>
-			<div className="flex flex-col items-center justify-center z-20 relative w-full bg-white/10 backdrop-blur-md py-8">
-				<h1 className="text-white mb-4 text-lg font-semibold">Trusted by Innovators from</h1>
-				<div className="w-full overflow-hidden">
+			{/* Above Footer */}
+			<div className="flex flex-col items-center justify-center bg-accent2 z-10 relative w-[100vw] mt-12 pt-8">
+				<h1 className="text-black mb-6 text-5xl p-6 font-grotesk font-semibold">
+					Trusted by Innovators from
+				</h1>
+				<div className="w-full bg-white/80 backdrop-blur-md overflow-hidden mb-8">
 					<Strip />
 				</div>
-			</div>
-			<div className="bg-accent3 w-full h-44 z-10">
-				<h1>Build. Collaborate. Create Impact.</h1>
-				<img src="" alt="" />
+				<div className="flex p-4 justify-around flex-col lg:flex-row mb-12 items-center w-full">
+					<h1 className="text-3xl mb-6 lg:mb-0 md:text-5xl font-grotesk front-bold text-black">
+						Build. Collaborate. Create Impact.
+					</h1>
+					<img
+						src="https://d1y8sb8igg2f8e.cloudfront.net/images/Digital_Hand_and_Digital_Puzzle.width-800.png"
+						alt=""
+						className="mt-4 rounded-2xl shadow-xl bg-red-500"
+					/>
+				</div>
 			</div>
 		</div>
 	);
