@@ -12,7 +12,7 @@ function Home() {
 			<section>
 				<Hero />
 			</section>
-			<section>
+			<section className="bg-accent3">
 				<Strip />
 			</section>
 			<section>

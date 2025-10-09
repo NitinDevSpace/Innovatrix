@@ -20,7 +20,7 @@ function Strip() {
 	];
 
 	return (
-		<div className="overflow-hidden bg-accent3 p-6 z-5">
+		<div className="overflow-hidden p-6 z-5">
 			<div className="flex gap-24 animate-marquee">
 				{[...logos, ...logos].map((url, i) => (
 					<div

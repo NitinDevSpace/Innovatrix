@@ -30,7 +30,7 @@ function JoinCommunity() {
   ]
 
   return (
-    <section className="bg-gradient-to-r from-primary via-secondary via-secondary2 to-accent1 text-white py-16 px-6 md:px-16">
+    <section className="bg-gradient-to-r from-primary via-secondary via-secondary2 to-secondary text-white py-16 px-6 md:px-16">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-extrabold mb-4">Join the Innovatrix Community</h2>
         <p className="text-lg max-w-3xl mx-auto mb-6">
