@@ -3,12 +3,13 @@ import { ChevronDown, ChevronUp, CircleUserRound, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom"; // For navigation
 import logo from "../assets/logo.png";
 import { useAuthStore } from "../zustand/store";
+import { SignOutRequest } from "../services/user";
 
 function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [profile, setProfile] = useState(false);
 	const profileRef = useRef(null);
-	const { signedIn, signIn, signOut } = useAuthStore();
+	const { signedIn, signOut, user } = useAuthStore();
 	const navigate = useNavigate();
 
 	function handleProfile() {
@@ -19,18 +20,12 @@ function Navbar() {
 		setProfile(!profile);
 	}
 
-	function getTokenFromCookies() {
-		const match = document.cookie.match(new RegExp("(^| )token=([^;]+)"));
-		return match ? match[2] : null;
+	async function handleSignout() {
+		const response = await SignOutRequest();
+		signOut();
+		navigate("/");
+		setProfile(false);
 	}
-
-	useEffect(() => {
-		const token = getTokenFromCookies();
-		if (token) {
-			signIn(); // Update Zustand store
-		}
-		//signIn();
-	}, []);
 
 	useEffect(() => {
 		if (!profile) return; // Only run when dropdown is open
@@ -104,7 +99,7 @@ function Navbar() {
 								<CircleUserRound />
 								{signedIn ? (
 									<>
-										Name
+										{user.data.fullName}
 										{profile ? <ChevronUp /> : <ChevronDown />}
 									</>
 								) : (
@@ -123,11 +118,7 @@ function Navbar() {
 										Profile
 									</button>
 									<button
-										onClick={() => {
-											signOut();
-											navigate("/");
-											setProfile(false);
-										}}
+										onClick={handleSignout}
 										className="hover:scale-105 hover:text-red-500"
 									>
 										Sign Out

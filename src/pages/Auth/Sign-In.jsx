@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SignInRequest } from "../../services/user";
+import { getUserDetails, SignInRequest } from "../../services/user";
+import { useAuthStore } from "../../zustand/store";
 
 const SignIn = () => {
 	const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const SignIn = () => {
 		password: "",
 		rememberMe: false,
 	});
+
+	const { signIn } = useAuthStore();
 
 	const navigate = useNavigate();
 
@@ -22,7 +25,9 @@ const SignIn = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const response = await SignInRequest(formData);
-		console.log("Sign In attempt:", response);
+		if (response.status == 200) {
+			navigate("/");
+		}
 	};
 
 	return (
@@ -33,7 +38,7 @@ const SignIn = () => {
 				style={{
 					backgroundImage:
 						// "url('https://img.freepik.com/free-vector/3d-style-black-background-with-paper-layer_206725-669.jpg?semt=ais_hybrid&w=740&q=80')",
-					"url('https://t3.ftcdn.net/jpg/03/64/76/22/360_F_364762217_G4bMaSfMBuwgjawubHlxJqyt1SG2gJ5n.jpg')",
+						"url('https://t3.ftcdn.net/jpg/03/64/76/22/360_F_364762217_G4bMaSfMBuwgjawubHlxJqyt1SG2gJ5n.jpg')",
 				}}
 			>
 				{/* optional: reduced opacity */}

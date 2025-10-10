@@ -11,10 +11,12 @@ import Builders from "./pages/Forms/Builders";
 import SignIn from "./pages/Auth/Sign-In";
 import SignUp from "./pages/Auth/Sign-Up";
 import Profile from "./pages/Auth/Profile";
+import AuthInitializer from "./utils/AuthInitializer";
 
 function App() {
 	return (
 		<>
+			<AuthInitializer />
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />

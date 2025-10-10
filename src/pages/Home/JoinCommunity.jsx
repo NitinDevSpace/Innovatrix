@@ -5,27 +5,27 @@ function JoinCommunity() {
     {
       title: 'Networking Opportunities',
       description: 'Connect with like-minded innovators and expand your professional network.',
-      image: 'https://via.placeholder.com/150',
+      image: 'https://image-placeholder.com/images/actual-size/320x200.png',
     },
     {
       title: 'Innovative Ideas',
       description: 'Be part of a community that fosters creativity and groundbreaking ideas.',
-      image: 'https://via.placeholder.com/150',
+      image: 'https://image-placeholder.com/images/actual-size/320x200.png',
     },
     {
       title: 'Learning Resources',
       description: 'Access exclusive tutorials, webinars, and workshops to enhance your skills.',
-      image: 'https://via.placeholder.com/150',
+      image: 'https://image-placeholder.com/images/actual-size/320x200.png',
     },
     {
       title: 'Collaborative Projects',
       description: 'Work together on exciting projects and bring your ideas to life.',
-      image: 'https://via.placeholder.com/150',
+      image: 'https://image-placeholder.com/images/actual-size/320x200.png',
     },
     {
       title: 'Mentorship Programs',
       description: 'Get guidance from industry experts to accelerate your growth.',
-      image: 'https://via.placeholder.com/150',
+      image: 'https://image-placeholder.com/images/actual-size/320x200.png',
     },
   ]
 
