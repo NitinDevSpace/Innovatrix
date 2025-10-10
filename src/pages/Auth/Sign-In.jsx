@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SignInRequest } from "../../services/user";
 
 const SignIn = () => {
 	const [formData, setFormData] = useState({
@@ -18,9 +19,10 @@ const SignIn = () => {
 		}));
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("Sign In attempt:", formData);
+		const response = await SignInRequest(formData);
+		console.log("Sign In attempt:", response);
 	};
 
 	return (

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SignUpRequest } from "../../services/user";
 
 const SignUp = () => {
 	const [formData, setFormData] = useState({
@@ -21,14 +22,16 @@ const SignUp = () => {
 		}));
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (formData.password !== formData.confirmPassword) {
 			alert("Passwords do not match!");
 			return;
 		}
 
-		console.log("Sign up attempt:", formData);
+		const response = await SignUpRequest(formData);
+
+		console.log("Sign up attempt:", response);
 	};
 
 	return (
