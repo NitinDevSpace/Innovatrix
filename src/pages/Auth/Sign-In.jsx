@@ -26,6 +26,8 @@ const SignIn = () => {
 		e.preventDefault();
 		const response = await SignInRequest(formData);
 		if (response.status == 200) {
+			const user = await getUserDetails();
+			if (user) signIn(user);
 			navigate("/");
 		}
 	};

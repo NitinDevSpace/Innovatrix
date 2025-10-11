@@ -6,7 +6,7 @@ import lightbulb from "../../assets/light-bulb.png";
 function Hero() {
 	return (
 		<div className="bg-accent2 p-6">
-			<div className="flex flex-col gap-4 lg:flex-row lg:max-w-[100rem] my-6 justify-between mx-auto p-6">
+			<div className="flex flex-col gap-24 lg:flex-row lg:max-w-[100rem] my-6 justify-between mx-auto p-6">
 				{/* Left side */}
 				<div className="flex flex-col font-grotesk lg:max-w-[60%]">
 					<h1 className="py-1 text-3xl font-bold">
@@ -47,7 +47,7 @@ function Hero() {
 					</div>
 				</div>
 				{/* Right side */}
-				<div className="flex text-white justify-around grow items-center">
+				<div className="flex text-white justify-around gap-12 grow items-center">
 					<div className="relative">
 						<div className="absolute bottom-0 bg-accent1 border w-64 h-44 rounded-xl"></div>
 						<div className="relative right-5 bottom-5 flex flex-col gap-4 bg-secondary2 z-10 w-64 h-80 rounded-xl p-4">

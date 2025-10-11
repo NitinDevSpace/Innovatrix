@@ -88,11 +88,11 @@ function Navbar() {
 						>
 							Kanban
 						</Link>
-						<button
+						<div
 							ref={profileRef}
 							className="relative flex flex-col justify-center items-center text-secondary2"
 						>
-							<div
+							<button
 								onClick={handleProfile}
 								className="flex gap-2 items-center  hover:scale-105 hover:text-primary font-medium font-grotesk"
 							>
@@ -105,12 +105,13 @@ function Navbar() {
 								) : (
 									"Sign In"
 								)}
-							</div>
+							</button>
 							{/* Profule Drawer */}
 							{profile && (
 								<div className="absolute top-full mt-2 bg-white w-44 p-4 flex flex-col gap-3 font-grotesk rounded shadow-md z-50">
 									<button
 										onClick={() => {
+											setProfile(false);
 											navigate("/profile");
 										}}
 										className="hover:scale-105 hover:text-primary"
@@ -125,7 +126,7 @@ function Navbar() {
 									</button>
 								</div>
 							)}
-						</button>
+						</div>
 					</div>
 
 					{/* Mobile menu button */}
