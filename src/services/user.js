@@ -22,9 +22,8 @@ export const getUserDetails = async () => {
 	try {
 		const response = await axiosInstance.get("/api/auth/me");
 		return response;
-	} catch(error) {
-		console.log("Not Signed");
-		
+	} catch (error) {
+		console.log("Error when Validating: ", error);
 	}
 };
 
@@ -35,4 +34,4 @@ export const SignOutRequest = async () => {
 	} catch (error) {
 		console.log("Error Signing Out: ", error);
 	}
-}
+};

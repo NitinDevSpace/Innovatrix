@@ -3,13 +3,18 @@ import { useAuthStore } from "../zustand/store";
 import { getUserDetails } from "../services/user";
 
 function AuthInitializer() {
-	const { signedIn, signIn, signOut } = useAuthStore();
+	const { signIn, signOut } = useAuthStore();
 
 	useEffect(() => {
 		const initializeAuth = async () => {
 			try {
 				const userData = await getUserDetails(); // Calls /auth/me
-				if (userData) signIn(userData); // Update store
+				// Check if user data is valid
+				if (userData && userData.username) {
+					signIn(userData); // Update store
+				} else {
+					signOut(); // Treat as not logged in
+				}
 			} catch (err) {
 				signOut(); // Token missing or invalid
 			}
