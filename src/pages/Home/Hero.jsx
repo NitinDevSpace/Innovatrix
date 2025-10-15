@@ -70,7 +70,7 @@ function Hero() {
 								For Organizers
 							</div>
 							<div className="my-4">Companies, Universities & Communities</div>
-							<button className="bg-accent1 rounded-lg p-2 shadow-xl font-grotesk font-bold">
+							<button className="bg-accent1 hover:scale-105 rounded-lg p-2 shadow-xl font-grotesk font-bold">
 								Contact Us
 							</button>
 						</div>
@@ -82,7 +82,7 @@ function Hero() {
 								For <br /> Builders
 							</div>
 							<div className="my-4">Students, Startups & Innovators</div>
-							<button className="bg-secondary2 rounded-lg p-2 shadow-xl font-grotesk font-bold">
+							<button className="bg-secondary2 hover:scale-105 rounded-lg p-2 shadow-xl font-grotesk font-bold">
 								Build Now
 							</button>
 						</div>
