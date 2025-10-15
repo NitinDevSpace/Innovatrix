@@ -140,10 +140,10 @@ function Builders() {
 				</button>
 			</div>
 			{/* below section of text heading */}
-			<div className="flex flex-col flex-wrap lg:flex-nowrap md:flex-row gap-6 justify-center items-center md:items-start z-10 w-full max-w-[100rem] mx-auto">
+			<div className="flex flex-col flex-wrap lg:flex-nowrap md:flex-row gap-10 justify-center items-center md:items-start z-10 w-full max-w-[100rem] mx-auto">
 				{/* left container */}
-				<div className="w-full lg:w-[60%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl  shadow-2xl">
-					<div className="p-12 flex flex-col items-center justify-center text-white gap-8">
+				<div className="w-full lg:w-[55%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl  rounded-3xl  shadow-2xl">
+					<div className="p-8 flex flex-col items-center justify-center text-white gap-8">
 						<h1 className="text-4xl font-grotesk font-extrabold mb-4 ">
 							For the Builders, Dreamers, and Disruptors.
 						</h1>
@@ -177,14 +177,14 @@ function Builders() {
 				{/* right container form */}
 				<div
 					ref={formRef}
-					className="w-full lg:w-[40%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl p-4 shadow-2xl"
+					className="w-full lg:w-[35%] overflow-hidden bg-white bg-opacity-10 backdrop-blur-2xl border-2 border-white rounded-3xl p-4 shadow-2xl"
 				>
 					<h1 className="text-4xl text-white font-grotesk font-extrabold m-6 justify-self-center">
 						Builder Registration
 					</h1>
 					<form
 						onSubmit={handleSubmit}
-						className="p-10 sm:p-12 flex flex-col gap-4 justify-center"
+						className="p-8 sm:p-10 flex flex-col gap-4 justify-center"
 						noValidate
 					>
 						<input

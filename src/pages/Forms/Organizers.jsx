@@ -158,9 +158,9 @@ function Organizers() {
 						))}
 					</div>
 					{/* Optional illustration */}
-					<div className="mt-12 max-w-xs opacity-80 select-none pointer-events-none">
+					<div className="mt-12 max-w-xl opacity-80 select-none pointer-events-none">
 						<img
-							src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60"
+							src="https://media.licdn.com/dms/image/v2/D5612AQEF0riJVDZrRw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1705562089763?e=2147483647&v=beta&t=sA2wR7RSza8aSWVlrYSe_lSa3_Fut7gloTmrY4PlTAg"
 							alt="Innovation illustration"
 							className="rounded-xl shadow-lg"
 						/>
