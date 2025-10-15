@@ -2,6 +2,7 @@ import React from "react";
 import partners from "../../assets/partners.png";
 import programming from "../../assets/programming.png";
 import lightbulb from "../../assets/light-bulb.png";
+import { Typewriter } from "react-simple-typewriter";
 
 function Hero() {
 	return (
@@ -18,7 +19,21 @@ function Hero() {
 					<h1 className="py-1 text-2xl font-bold">
 						through <span className="text-accent1"> Innovatrix </span>
 						<span className="text-accent1">
-							[Startup Programs | Hackathons | Innovation Challenges].
+							
+							<Typewriter
+								words={[
+									"Startup Programs",
+									"Hackathons",
+									"Innovation Challenges",
+								]}
+								loop={true}
+								cursor
+								cursorStyle="!"
+								typeSpeed={80}
+								deleteSpeed={50}
+								delaySpeed={1500}
+							/>
+							
 						</span>
 					</h1>
 

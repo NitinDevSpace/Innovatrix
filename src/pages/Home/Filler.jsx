@@ -2,8 +2,8 @@ import React from "react";
 
 function Filler() {
 	return (
-		<div className="flex justify-around items-center bg-primary">
-			<div>
+		<div className="flex flex-col md:flex-row  p-6 justify-around items-center bg-primary">
+			<div className="mt-12 md:mt-0">
 				<h1 className="text-white text-5xl font-grotesk">Build.</h1>
 				<h1 className="text-white text-5xl font-grotesk">Innovate.</h1>
 				<h1 className="text-white text-5xl font-grotesk">Create.</h1>
