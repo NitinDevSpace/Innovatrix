@@ -5,10 +5,10 @@ import logo from "../assets/logo.png";
 
 function Footer() {
 	return (
-		<footer className="bg-secondary2 text-accent2 ">
+		<footer className="bg-secondary2 p-4 text-accent2 ">
 			{/* Top section: Logo + Links */}
 			<div className="lg:max-w-[100rem] mx-auto px-4 py-10 sm:px-6 lg:px-8">
-				<div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+				<div className="flex justify-between items-start md:items-center">
 					{/* Logo */}
 					<div className="flex-shrink-0">
 						<Link
@@ -25,7 +25,7 @@ function Footer() {
 					</div>
 
 					{/* Navigation links */}
-					<div className="flex flex-col md:flex-row space-y-2 font-grotesk md:space-y-0 md:space-x-8">
+					<div className="flex flex-col md:flex-row space-y-2 mr-16 md:mr-0 font-grotesk md:space-y-0 md:space-x-8">
 						<Link to="/about" className="hover:text-accent1 font-medium">
 							About
 						</Link>
