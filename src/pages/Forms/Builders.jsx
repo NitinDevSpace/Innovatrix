@@ -158,9 +158,9 @@ function Builders() {
 						</p>
 						<div className="mt-8">
 							<img
-								src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+								src="https://blog.hyperiondev.com/wp-content/uploads/2020/09/coders-who-changed-the-world.png"
 								alt="Builders working"
-								className="rounded-lg shadow-sm shadow-white object-cover w-full h-48 "
+								className="rounded-lg shadow-sm shadow-white object-cover w-1/2 mx-auto "
 							/>
 						</div>
 						<h1 className="text-white text-3xl font-grotesk font-bold p-6 flex items-center gap-2">
@@ -306,7 +306,7 @@ function Builders() {
 				</div>
 				<div className="flex p-4 justify-around flex-col lg:flex-row mb-12 items-center w-full">
 					<h1 className="text-3xl mb-6 lg:mb-0 md:text-5xl font-grotesk front-bold text-black">
-						Build. Collaborate. Create Impact.
+						Build. <br /> Collaborate. <br /> Create Impact.
 					</h1>
 					<img
 						src="https://d1y8sb8igg2f8e.cloudfront.net/images/Digital_Hand_and_Digital_Puzzle.width-800.png"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Globe, Users, Rocket, Award, Building2, Code2 } from 'lucide-react';
 
 function Organizers() {
   const [formData, setFormData] = useState({
@@ -74,7 +75,7 @@ function Organizers() {
     setSuccessMessage('')
 
     try {
-      const response = await fetch('http://localhost:8080/api/organizers', {
+      const response = await fetch('http://localhost:8080/api/organizers/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +128,7 @@ function Organizers() {
 			className="min-h-screen bg-cover bg-center relative font-grotesk"
 			style={{
 				backgroundImage:
-					"url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')",
+					"url('https://t3.ftcdn.net/jpg/03/64/76/22/360_F_364762217_G4bMaSfMBuwgjawubHlxJqyt1SG2gJ5n.jpg')",
 			}}
 		>
 			{/* Overlay */}
@@ -366,37 +367,31 @@ function Organizers() {
 			{/* Bottom Section */}
 			<section className="relative z-10 max-w-7xl mx-auto px-6 py-12 flex flex-col items-center space-y-6 text-white">
 				{/* Placeholder for logos/trust section */}
-				<div className="flex flex-wrap justify-center items-center gap-8 opacity-70 max-w-4xl">
-					<img
-						src="https://tailwindui.com/img/logos/transistor-logo-white.svg"
-						alt="Transistor"
-						className="h-10"
-					/>
-					<img
-						src="https://tailwindui.com/img/logos/mirage-logo-white.svg"
-						alt="Mirage"
-						className="h-10"
-					/>
-					<img
-						src="https://tailwindui.com/img/logos/tuple-logo-white.svg"
-						alt="Tuple"
-						className="h-10"
-					/>
-					<img
-						src="https://tailwindui.com/img/logos/laravel-logo-white.svg"
-						alt="Laravel"
-						className="h-10"
-					/>
-					<img
-						src="https://tailwindui.com/img/logos/statickit-logo-white.svg"
-						alt="StaticKit"
-						className="h-10"
-					/>
-					<img
-						src="https://tailwindui.com/img/logos/workcation-logo-white.svg"
-						alt="Workcation"
-						className="h-10"
-					/>
+				<div className="flex flex-wrap justify-center gap-6 max-w-6xl">
+				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+				    <Globe className="text-white w-6 h-6 mb-1" />
+				    <p className="text-sm font-semibold text-white">5+ Countries Reached</p>
+				  </div>
+				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+				    <Users className="text-white w-6 h-6 mb-1" />
+				    <p className="text-sm font-semibold text-white">10K+ Builders</p>
+				  </div>
+				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+				    <Rocket className="text-white w-6 h-6 mb-1" />
+				    <p className="text-sm font-semibold text-white">100+ Hackathons Hosted</p>
+				  </div>
+				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+				    <Building2 className="text-white w-6 h-6 mb-1" />
+				    <p className="text-sm font-semibold text-white">50+ Partner Institutes</p>
+				  </div>
+				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+				    <Award className="text-white w-6 h-6 mb-1" />
+				    <p className="text-sm font-semibold text-white">Global Innovation Awards</p>
+				  </div>
+				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+				    <Code2 className="text-white w-6 h-6 mb-1" />
+				    <p className="text-sm font-semibold text-white">Open Source Driven</p>
+				  </div>
 				</div>
 
 				{/* Final CTA */}
