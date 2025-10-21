@@ -2,72 +2,124 @@ import React from 'react'
 
 function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 p-6 animate-fadeIn">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-lg overflow-hidden mb-12 shadow-lg">
+      <section className="relative bg-gradient-to-r from-primary via-secondary2 to-accent1 text-white rounded-lg overflow-hidden shadow-lg">
         <img
-          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80"
+          src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1470&q=80"
           alt="Hackathon background"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
-        <div className="relative max-w-4xl mx-auto py-24 px-6 text-center">
-          <h1 className="text-5xl font-extrabold drop-shadow-lg mb-4">About Hackon</h1>
-          <p className="text-xl font-light drop-shadow-md max-w-2xl mx-auto">
-            Connecting innovators worldwide to build, learn, and create together.
+        <div className="relative max-w-5xl mx-auto py-24 text-center px-6">
+          <h1 className="text-5xl sm:text-6xl font-extrabold font-grotesk mb-6 drop-shadow-lg">Empowering Innovators. Inspiring Change.</h1>
+          <p className="text-xl font-light max-w-3xl mx-auto opacity-90">
+            Innovatrix connects builders, dreamers, and doers from across the world to collaborate, innovate, and solve meaningful challenges.
           </p>
+          <div className="flex justify-center gap-8 mt-10 text-lg font-semibold opacity-90">
+            <span>10K+ Builders</span>
+            <span>100+ Hackathons</span>
+            <span>5+ Countries</span>
+          </div>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto space-y-20">
-        {/* Our Mission Section */}
-        <section className="flex flex-col md:flex-row items-center md:space-x-12 space-y-8 md:space-y-0">
-          <img
-            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80"
-            alt="Our Mission"
-            className="rounded-lg shadow-lg w-full md:w-1/2 object-cover hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
-          <div className="md:w-1/2 text-gray-800">
-            <h2 className="text-3xl font-semibold text-indigo-700 border-b-4 border-indigo-300 pb-2 mb-4">Our Mission</h2>
-            <p className="leading-relaxed text-lg">
-              At Hackon, our mission is to foster creativity and innovation by providing a seamless platform where hackers can come together to solve real-world problems. We strive to nurture talent, encourage collaboration, and celebrate the spirit of open-source development.
-            </p>
-          </div>
-        </section>
+      {/* Our Story Section */}
+      <section className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 py-20 px-6 sm:px-10">
+        <div className="md:w-1/2 space-y-6">
+          <h2 className="text-4xl font-semibold text-primary border-b-4 border-accent1 pb-3 font-grotesk">Our Story</h2>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Founded with a vision to bridge innovation and impact, Innovatrix was born out of the need for a unified ecosystem where ideas meet execution.
+            What started as a small virtual hackathon in 2025 has now evolved into a global community of creators shaping the digital future.
+          </p>
+          <p className="italic text-gray-500">“Great ideas deserve a great stage.”</p>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80"
+          alt="Our Story"
+          className="md:w-1/2 rounded-xl shadow-xl object-cover"
+        />
+      </section>
 
-        {/* Why Hackon Section */}
-        <section className="flex flex-col md:flex-row items-center md:space-x-12 space-y-8 md:space-y-0 md:flex-row-reverse">
-          <img
-            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80"
-            alt="Why Hackon"
-            className="rounded-lg shadow-lg w-full md:w-1/2 object-cover hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
-          <div className="md:w-1/2 text-gray-800">
-            <h2 className="text-3xl font-semibold text-indigo-700 border-b-4 border-indigo-300 pb-2 mb-4">Why Hackon?</h2>
-            <p className="leading-relaxed text-lg">
-              Whether you're a seasoned developer or just starting out, Hackon offers a user-friendly interface, powerful tools, and a vibrant community. Participate in themed hackathons, showcase your skills, and gain valuable experience while networking with industry experts and peers.
+      {/* Mission + Vision Section */}
+      <section className="bg-gradient-to-r from-secondary2 to-accent1 py-20 text-white px-6 sm:px-10">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+          <div className="bg-white/10 backdrop-blur-lg p-8 rounded-xl shadow-lg text-center">
+            <div className="text-4xl mb-4">🎯</div>
+            <h3 className="text-2xl font-semibold mb-3 font-grotesk">Our Mission</h3>
+            <p className="text-lg opacity-90">
+              To empower problem solvers with the tools, exposure, and network they need to turn ideas into impactful solutions.
             </p>
           </div>
-        </section>
+          <div className="bg-white/10 backdrop-blur-lg p-8 rounded-xl shadow-lg text-center">
+            <div className="text-4xl mb-4">🌟</div>
+            <h3 className="text-2xl font-semibold mb-3 font-grotesk">Our Vision</h3>
+            <p className="text-lg opacity-90">
+              To be the world’s leading platform for collaborative innovation and open growth.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* Join Us Section */}
-        <section className="flex flex-col md:flex-row items-center md:space-x-12 space-y-8 md:space-y-0">
-          <img
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
-            alt="Join Us"
-            className="rounded-lg shadow-lg w-full md:w-1/2 object-cover hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
-          <div className="md:w-1/2 text-gray-800">
-            <h2 className="text-3xl font-semibold text-indigo-700 border-b-4 border-indigo-300 pb-2 mb-4">Join Us</h2>
-            <p className="leading-relaxed text-lg">
-              Ready to turn your ideas into reality? Join Hackon today and be part of a global movement that celebrates innovation and collaboration. Sign up, join upcoming hackathons, and start building the future with us!
-            </p>
+      {/* Why Innovatrix Section */}
+      <section className="py-20 bg-white px-6 sm:px-10">
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="text-4xl font-semibold text-primary font-grotesk">Why Innovatrix?</h2>
+          <p className="text-lg text-gray-600 mt-3 max-w-2xl mx-auto">
+            A platform built for creators — by creators. We simplify innovation, connecting brilliant minds and bold ideas across borders.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+          <div className="p-8 rounded-xl shadow-md bg-gradient-to-br from-primary/10 to-accent1/10">
+            <h4 className="text-xl font-semibold text-primary mb-2">🧩 Accessible for Everyone</h4>
+            <p className="text-gray-700">A simple, intuitive experience for all skill levels.</p>
           </div>
-        </section>
-      </div>
+          <div className="p-8 rounded-xl shadow-md bg-gradient-to-br from-primary/10 to-accent1/10">
+            <h4 className="text-xl font-semibold text-primary mb-2">⚡ End-to-End Platform</h4>
+            <p className="text-gray-700">Host, join, and manage hackathons — all in one place.</p>
+          </div>
+          <div className="p-8 rounded-xl shadow-md bg-gradient-to-br from-primary/10 to-accent1/10">
+            <h4 className="text-xl font-semibold text-primary mb-2">🌍 Global Community</h4>
+            <p className="text-gray-700">Collaborate with innovators from 5+ countries.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="py-20 bg-gray-50 px-6 sm:px-10">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-semibold text-primary font-grotesk mb-12">Our Achievements</h2>
+          <div className="flex flex-wrap justify-center gap-8 text-center">
+            <div className="bg-white rounded-lg shadow p-6 w-[200px]">
+              <h4 className="text-2xl font-bold text-primary">10K+</h4>
+              <p className="text-gray-600">Active Builders</p>
+            </div>
+            <div className="bg-white rounded-lg shadow p-6 w-[200px]">
+              <h4 className="text-2xl font-bold text-primary">100+</h4>
+              <p className="text-gray-600">Successful Events</p>
+            </div>
+            <div className="bg-white rounded-lg shadow p-6 w-[200px]">
+              <h4 className="text-2xl font-bold text-primary">50+</h4>
+              <p className="text-gray-600">Partners & Sponsors</p>
+            </div>
+            <div className="bg-white rounded-lg shadow p-6 w-[200px]">
+              <h4 className="text-2xl font-bold text-primary">5+</h4>
+              <p className="text-gray-600">Global Regions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Join the Movement Section */}
+      <section className="bg-gradient-to-r from-accent1 via-secondary2 to-primary text-white text-center py-24 px-6">
+        <h2 className="text-5xl font-extrabold mb-6 font-grotesk">Join the Movement</h2>
+        <p className="text-lg max-w-2xl mx-auto mb-8 opacity-90">
+          Whether you're a developer, designer, or visionary — Innovatrix is where your next big idea begins.
+          Be part of a growing movement that builds the future together.
+        </p>
+        <button className="px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-opacity-90 transition">
+          Join Innovatrix
+        </button>
+      </section>
     </div>
   )
 }
