@@ -1,129 +1,124 @@
-import React, { useState } from 'react'
-import { Globe, Users, Rocket, Award, Building2, Code2 } from 'lucide-react';
+import React, { useState } from "react";
+import { Globe, Users, Rocket, Award, Building2, Code2 } from "lucide-react";
+import { OrganizerRegister } from "../../services/organizers";
 
 function Organizers() {
-  const [formData, setFormData] = useState({
-    organizerId: `ORG-${Date.now()}`,
-    instituteType: '',
-    instituteName: '',
-    email: '',
-    phone: '',
-    jobTitle: '',
-    hackathonType: '',
-  })
+	const [formData, setFormData] = useState({
+		organizerId: `ORG-${Date.now()}`,
+		instituteType: "",
+		instituteName: "",
+		email: "",
+		phone: "",
+		jobTitle: "",
+		hackathonType: "",
+	});
 
-  const [errors, setErrors] = useState({})
-  const [submitting, setSubmitting] = useState(false)
-  const [successMessage, setSuccessMessage] = useState('')
+	const [errors, setErrors] = useState({});
+	const [submitting, setSubmitting] = useState(false);
+	const [successMessage, setSuccessMessage] = useState("");
 
-  const instituteTypes = [
-    'University',
-    'College',
-    'Bootcamp',
-    'Company',
-    'Community',
-    'Other',
-  ]
+	const instituteTypes = [
+		"University",
+		"College",
+		"Bootcamp",
+		"Company",
+		"Community",
+		"Other",
+	];
 
-  const hackathonTypes = [
-    'Online',
-    'Onsite',
-    'Hybrid',
-  ]
+	const hackathonTypes = ["Online", "Onsite", "Hybrid"];
 
-  const validate = () => {
-    const newErrors = {}
+	const validate = () => {
+		const newErrors = {};
 
-    if (!formData.instituteType) newErrors.instituteType = 'Type of Institute is required'
-    if (!formData.instituteName.trim()) newErrors.instituteName = 'Institute Name is required'
+		if (!formData.instituteType)
+			newErrors.instituteType = "Type of Institute is required";
+		if (!formData.instituteName.trim())
+			newErrors.instituteName = "Institute Name is required";
 
-    if (!formData.email) {
-      newErrors.email = 'Email is required'
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
-    ) {
-      newErrors.email = 'Invalid email address'
-    }
+		if (!formData.email) {
+			newErrors.email = "Email is required";
+		} else if (
+			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+		) {
+			newErrors.email = "Invalid email address";
+		}
 
-    if (!formData.phone) {
-      newErrors.phone = 'Phone Number is required'
-    } else if (
-      !/^\+?[1-9]\d{1,14}$/.test(formData.phone.replace(/\s+/g, ''))
-    ) {
-      newErrors.phone = 'Invalid phone number (E.164 format recommended)'
-    }
+		if (!formData.phone) {
+			newErrors.phone = "Phone Number is required";
+		} else if (!/^\+?[1-9]\d{1,14}$/.test(formData.phone.replace(/\s+/g, ""))) {
+			newErrors.phone = "Invalid phone number (E.164 format recommended)";
+		}
 
-    if (!formData.jobTitle.trim()) newErrors.jobTitle = 'Job Title is required'
-    if (!formData.hackathonType) newErrors.hackathonType = 'Hackathon Type is required'
+		if (!formData.jobTitle.trim()) newErrors.jobTitle = "Job Title is required";
+		if (!formData.hackathonType)
+			newErrors.hackathonType = "Hackathon Type is required";
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+		setErrors(newErrors);
+		return Object.keys(newErrors).length === 0;
+	};
 
-  const handleChange = e => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    setErrors(prev => ({ ...prev, [name]: '' }))
-    setSuccessMessage('')
-  }
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({ ...prev, [name]: value }));
+		setErrors((prev) => ({ ...prev, [name]: "" }));
+		setSuccessMessage("");
+	};
 
-  const handleSubmit = async e => {
-    e.preventDefault()
-    if (!validate()) return
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (!validate()) return;
 
-    setSubmitting(true)
-    setSuccessMessage('')
+		setSubmitting(true);
+		setSuccessMessage("");
 
-    try {
-      const response = await fetch('http://localhost:8080/api/organizers/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+		try {
+			const response = await OrganizerRegister(formData);
 
-      if (!response.ok) {
-        throw new Error('Failed to submit form')
-      }
+			if (!response || response.error) {
+				throw new Error("Failed to submit form");
+			}
 
-      setSuccessMessage('Registration successful! Thank you.')
-      setFormData({
-        organizerId: `ORG-${Date.now()}`,
-        instituteType: '',
-        instituteName: '',
-        email: '',
-        phone: '',
-        jobTitle: '',
-        hackathonType: '',
-      })
-      setErrors({})
-    } catch (error) {
-      setErrors({ submit: error.message || 'Submission failed' })
-    } finally {
-      setSubmitting(false)
-    }
-  }
+			setSuccessMessage("Registration successful! Thank you.");
+			setFormData({
+				organizerId: `ORG-${Date.now()}`,
+				instituteType: "",
+				instituteName: "",
+				email: "",
+				phone: "",
+				jobTitle: "",
+				hackathonType: "",
+			});
+			setErrors({});
+		} catch (error) {
+			setErrors({ submit: error.message || "Submission failed" });
+		} finally {
+			setSubmitting(false);
+		}
+	};
 
-  const benefits = [
-    {
-      icon: '🚀',
-      title: 'Accelerate Innovation',
-      description: 'Host hackathons that inspire groundbreaking ideas and solutions.',
-    },
-    {
-      icon: '🤝',
-      title: 'Build Community',
-      description: 'Connect with passionate developers and tech enthusiasts worldwide.',
-    },
-    {
-      icon: '📈',
-      title: 'Grow Your Brand',
-      description: 'Showcase your institute’s commitment to technology and innovation.',
-    },
-  ]
+	const benefits = [
+		{
+			icon: "🚀",
+			title: "Accelerate Innovation",
+			description:
+				"Host hackathons that inspire groundbreaking ideas and solutions.",
+		},
+		{
+			icon: "🤝",
+			title: "Build Community",
+			description:
+				"Connect with passionate developers and tech enthusiasts worldwide.",
+		},
+		{
+			icon: "📈",
+			title: "Grow Your Brand",
+			description:
+				"Showcase your institute’s commitment to technology and innovation.",
+		},
+	];
 
-  return (
+	return (
 		<div
 			className="min-h-screen bg-cover bg-center relative font-grotesk"
 			style={{
@@ -368,30 +363,40 @@ function Organizers() {
 			<section className="relative z-10 max-w-7xl mx-auto px-6 py-12 flex flex-col items-center space-y-6 text-white">
 				{/* Placeholder for logos/trust section */}
 				<div className="flex flex-wrap justify-center gap-6 max-w-6xl">
-				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
-				    <Globe className="text-white w-6 h-6 mb-1" />
-				    <p className="text-sm font-semibold text-white">5+ Countries Reached</p>
-				  </div>
-				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
-				    <Users className="text-white w-6 h-6 mb-1" />
-				    <p className="text-sm font-semibold text-white">10K+ Builders</p>
-				  </div>
-				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
-				    <Rocket className="text-white w-6 h-6 mb-1" />
-				    <p className="text-sm font-semibold text-white">100+ Hackathons Hosted</p>
-				  </div>
-				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
-				    <Building2 className="text-white w-6 h-6 mb-1" />
-				    <p className="text-sm font-semibold text-white">50+ Partner Institutes</p>
-				  </div>
-				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
-				    <Award className="text-white w-6 h-6 mb-1" />
-				    <p className="text-sm font-semibold text-white">Global Innovation Awards</p>
-				  </div>
-				  <div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
-				    <Code2 className="text-white w-6 h-6 mb-1" />
-				    <p className="text-sm font-semibold text-white">Open Source Driven</p>
-				  </div>
+					<div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+						<Globe className="text-white w-6 h-6 mb-1" />
+						<p className="text-sm font-semibold text-white">
+							5+ Countries Reached
+						</p>
+					</div>
+					<div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+						<Users className="text-white w-6 h-6 mb-1" />
+						<p className="text-sm font-semibold text-white">10K+ Builders</p>
+					</div>
+					<div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+						<Rocket className="text-white w-6 h-6 mb-1" />
+						<p className="text-sm font-semibold text-white">
+							100+ Hackathons Hosted
+						</p>
+					</div>
+					<div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+						<Building2 className="text-white w-6 h-6 mb-1" />
+						<p className="text-sm font-semibold text-white">
+							50+ Partner Institutes
+						</p>
+					</div>
+					<div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+						<Award className="text-white w-6 h-6 mb-1" />
+						<p className="text-sm font-semibold text-white">
+							Global Innovation Awards
+						</p>
+					</div>
+					<div className="flex flex-col items-center bg-white/10 border border-white/20 rounded-lg p-3 shadow-md text-center w-[150px]">
+						<Code2 className="text-white w-6 h-6 mb-1" />
+						<p className="text-sm font-semibold text-white">
+							Open Source Driven
+						</p>
+					</div>
 				</div>
 
 				{/* Final CTA */}
@@ -412,4 +417,4 @@ function Organizers() {
 	);
 }
 
-export default Organizers
+export default Organizers;

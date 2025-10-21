@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { ArrowBigDownDash, MoveDown, MoveRight } from "lucide-react";
 import Strip from "../Home/Strip";
+import { BuilderRegister } from "../../services/builders";
 
 function Builders() {
 	const [formData, setFormData] = useState({
@@ -73,17 +74,10 @@ function Builders() {
 		setSubmitting(true);
 
 		try {
-			const response = await fetch("http://localhost:8080/api/builders", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formData),
-			});
+			const response = await BuilderRegister(formData);
 
-			if (!response.ok) {
-				const errData = await response.json();
-				throw new Error(errData.message || "Failed to submit form");
+			if (!response || response.error) {
+				throw new Error(error.message || "Failed to submit form");
 			}
 
 			setSuccess("Registration successful! Thank you for registering.");
