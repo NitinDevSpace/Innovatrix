@@ -10,8 +10,8 @@ function AuthInitializer() {
 			try {
 				const userData = await getUserDetails(); // Calls /auth/me
 				// Check if user data is valid
-				if (userData && userData.username) {
-					signIn(userData); // Update store
+				if (userData && userData.data.username) {
+					signIn(userData.data); // Update store
 				} else {
 					signOut(); // Treat as not logged in
 				}

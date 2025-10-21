@@ -4,7 +4,6 @@ import { User, Mail, Phone, Edit3, Trophy, Calendar } from 'lucide-react';
 
 function Profile() {
   let { user } = useAuthStore();
-  user = user.data;
   const [activeTab, setActiveTab] = useState('participated');
 
   const participatedHackathons = user?.participatedHackathons || [];

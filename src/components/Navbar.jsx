@@ -99,7 +99,7 @@ function Navbar() {
 								<CircleUserRound />
 								{signedIn ? (
 									<>
-										{user.data.fullName}
+										{user.fullName}
 										{profile ? <ChevronUp /> : <ChevronDown />}
 									</>
 								) : (
