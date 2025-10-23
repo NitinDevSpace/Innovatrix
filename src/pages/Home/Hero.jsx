@@ -3,8 +3,10 @@ import partners from "../../assets/partners.png";
 import programming from "../../assets/programming.png";
 import lightbulb from "../../assets/light-bulb.png";
 import { Typewriter } from "react-simple-typewriter";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+	const navigate = useNavigate();
 	return (
 		<div className="bg-accent2 p-6">
 			<div className="flex flex-col gap-24 lg:flex-row lg:max-w-[100rem] my-6 justify-between mx-auto p-6">
@@ -19,7 +21,6 @@ function Hero() {
 					<h1 className="py-1 text-2xl font-bold">
 						through <span className="text-accent1"> Innovatrix </span>
 						<span className="text-accent1">
-							
 							<Typewriter
 								words={[
 									"Startup Programs",
@@ -33,7 +34,6 @@ function Hero() {
 								deleteSpeed={50}
 								delaySpeed={1500}
 							/>
-							
 						</span>
 					</h1>
 
@@ -70,7 +70,12 @@ function Hero() {
 								For Organizers
 							</div>
 							<div className="my-4">Companies, Universities & Communities</div>
-							<button className="bg-accent1 hover:scale-105 rounded-lg p-2 shadow-xl font-grotesk font-bold">
+							<button
+								onClick={() => {
+									navigate("/organizers");
+								}}
+								className="bg-accent1 hover:scale-105 rounded-lg p-2 shadow-xl font-grotesk font-bold"
+							>
 								Contact Us
 							</button>
 						</div>
@@ -82,7 +87,12 @@ function Hero() {
 								For <br /> Builders
 							</div>
 							<div className="my-4">Students, Startups & Innovators</div>
-							<button className="bg-secondary2 hover:scale-105 rounded-lg p-2 shadow-xl font-grotesk font-bold">
+							<button
+								onClick={() => {
+									navigate("/builders");
+								}}
+								className="bg-secondary2 hover:scale-105 rounded-lg p-2 shadow-xl font-grotesk font-bold"
+							>
 								Build Now
 							</button>
 						</div>
