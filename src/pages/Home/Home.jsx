@@ -1,6 +1,6 @@
 import Hero from "./Hero";
 import Strip from "./Strip";
-import CurrentEvents from "./CurrentEvents";
+import RecentEvents from "./RecentEvents";
 import Innovations from "./Innovations";
 import Testimonials from "./Testimonials";
 import JoinCommunity from "./JoinCommunity";
@@ -16,7 +16,7 @@ function Home() {
 				<Strip />
 			</section>
 			<section>
-				<CurrentEvents />
+				<RecentEvents />
 			</section>
 			<section>
 				<Filler />
