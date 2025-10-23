@@ -27,7 +27,7 @@ const SignIn = () => {
 		const response = await SignInRequest(formData);
 		if (response.status == 200) {
 			const user = await getUserDetails();
-			if (user) signIn(user);
+			if (user) signIn(user.data);
 			navigate("/");
 		}
 	};
@@ -39,7 +39,6 @@ const SignIn = () => {
 				className="absolute inset-0 bg-cover bg-center"
 				style={{
 					backgroundImage:
-						// "url('https://img.freepik.com/free-vector/3d-style-black-background-with-paper-layer_206725-669.jpg?semt=ais_hybrid&w=740&q=80')",
 						"url('https://t3.ftcdn.net/jpg/03/64/76/22/360_F_364762217_G4bMaSfMBuwgjawubHlxJqyt1SG2gJ5n.jpg')",
 				}}
 			>
